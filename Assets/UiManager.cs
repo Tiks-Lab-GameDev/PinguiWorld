@@ -25,7 +25,7 @@ public class UiManager : MonoBehaviour {
 		}
 
 		public void Exit(){
-				//сюда пишешь код закрытия игры 
+				Application.Quit ();
 
 		}
 
