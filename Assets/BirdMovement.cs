@@ -4,7 +4,7 @@ using System.Collections;
 public class BirdMovement : MonoBehaviour {
 
 	Vector3 velocity = Vector3.zero;
-	public float flapSpeed    = 100f;
+	public Vector2 flapSpeed = new Vector2(0f,500f);
 	public float forwardSpeed = 1f;
 	public bool IsPause = false;
 	public bool IsGuiClick = false;
@@ -20,7 +20,8 @@ public class BirdMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = transform.GetComponentInChildren<Animator>();
-
+        IsPause = true;
+        Time.timeScale = 0;
 		if(animator == null) {
 			Debug.LogError("Didn't find animator!");
 		}
@@ -54,7 +55,7 @@ public class BirdMovement : MonoBehaviour {
 		GetComponent<Rigidbody2D>().AddForce( Vector2.right * forwardSpeed );
 
 		if(didFlap) {
-			GetComponent<Rigidbody2D>().AddForce( Vector2.up * flapSpeed );
+			GetComponent<Rigidbody2D>().AddForce( Vector2.up + flapSpeed );
 			animator.SetTrigger("DoFlap");
 
 
