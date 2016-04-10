@@ -29,20 +29,11 @@ public class BirdMovement : MonoBehaviour {
 
 	// Do Graphic & Input updates here
 	void Update() {
-		if(dead) {
-			deathCooldown -= Time.deltaTime;
 
-			if(deathCooldown <= 0) {
-				if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ) {
-					Application.LoadLevel( Application.loadedLevel );
-				}
-			}
-		}
-		else {
 						if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !IsGuiClick ) {
 				didFlap = true;
 			}
-		}
+		
 	}
 
 	

@@ -33,8 +33,7 @@ public class UiManager : MonoBehaviour {
 				UnityEngine.SceneManagement.SceneManager.LoadScene("menu");
 		}
 
-		public void Pause(){
-				
+		public void Pause(){			
 
 				if (!bd.IsPause) {
 						bd.IsGuiClick = true;
