@@ -30,7 +30,7 @@ public class BirdMovement : MonoBehaviour {
 	// Do Graphic & Input updates here
 	void Update() {
 
-						if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !IsGuiClick ) {
+		if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !IsGuiClick ) {
 				didFlap = true;
 			}
 		
