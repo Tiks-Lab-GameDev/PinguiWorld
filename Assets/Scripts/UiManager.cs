@@ -57,5 +57,5 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public void GodMod() { bd.godMode = !bd.godMode; }
+    public void GodMod() { if (PlayerPrefs.GetInt("GodMod") == 0) { PlayerPrefs.SetInt("GodMod", 1); Debug.Log(PlayerPrefs.GetInt("GodMod")); } else PlayerPrefs.SetInt("GodMod", 0); }
 }

@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
+using System.Text;
 using System.IO;
 
 public class Score : MonoBehaviour {
 
 	public static int score = 0;
 	static int highScore = 0;
-
 
 
     static Score instance;
@@ -38,7 +37,7 @@ public class Score : MonoBehaviour {
         Directory.CreateDirectory("Save");
 
     }
-
+    
 	void OnDestroy() {
 		instance = null;
 		PlayerPrefs.SetInt("highScore", highScore);
@@ -49,9 +48,11 @@ public class Score : MonoBehaviour {
 	}
 
     public static void SaveScore(string path) {
-
+        GameObject player_go = GameObject.FindGameObjectWithTag("Player");
+        BirdMovement bird = player_go.GetComponent<BirdMovement>();
         File.Delete(path);
-        File.AppendAllText(path, "high score = " + highScore+"");//14
+        
+        File.WriteAllText(path, "high score = " + highScore);
     }
 
     public static int GetHighScore() {

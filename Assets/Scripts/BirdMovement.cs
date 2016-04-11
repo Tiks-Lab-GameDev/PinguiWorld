@@ -9,7 +9,7 @@ public class BirdMovement : MonoBehaviour {
 	public float forwardSpeed = 1f;
     public bool IsPause = false;
 	public bool IsGuiClick = false;
-    public bool godMode = false;
+    public int godMode = PlayerPrefs.GetInt("GodMod");
     public bool dead = false;
     bool didFlap = false;
 
@@ -45,7 +45,7 @@ public class BirdMovement : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
-		if(godMode) return;	
+		if(godMode == 1) return;	
 		animator.SetTrigger("Death");
 		dead = true;
 	}
