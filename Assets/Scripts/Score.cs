@@ -6,6 +6,7 @@ using System.IO;
 public class Score : MonoBehaviour {
 
 	public static int score = 0;
+    public static int sc = 0;
 	static int highScore = 0;
 
 
@@ -32,7 +33,7 @@ public class Score : MonoBehaviour {
 		GameObject player_go = GameObject.FindGameObjectWithTag("Player");
         instance = this;
 		bird = player_go.GetComponent<BirdMovement>();
-		score = 0;
+		score = sc;
         highScore = GetHighScore();
         Directory.CreateDirectory("Save");
 

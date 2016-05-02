@@ -10,8 +10,11 @@ public class BirdMovement : MonoBehaviour {
     public bool IsPause = false;
 	public bool IsGuiClick = false;
     public int godMode = PlayerPrefs.GetInt("GodMod");
+    Collider2D pikColl;
     public bool dead = false;
+    GameObject go;
     bool didFlap = false;
+    public bool isReview = true;
 
 
 	// Use this for initialization
@@ -20,11 +23,16 @@ public class BirdMovement : MonoBehaviour {
         animator = transform.GetComponentInChildren<Animator>();
         IsPause = true;
         Time.timeScale = 0;
+        go = GameObject.FindGameObjectWithTag("Pik");
 		if(animator == null) {
 			Debug.LogError("Didn't find animator!");
 		}
 	}
 
+    void OnTriggerEnter(Collider2D collider)
+    {
+        if (collider == go.GetComponent<Collider2D>()) ; 
+    }
 	// Do Graphic & Input updates here
 	void Update() {
 
@@ -74,4 +82,6 @@ public class BirdMovement : MonoBehaviour {
     {
         rb.AddForce(Vector2.right * forwardSpeed);
     }
+
+    void review() { }
 }
