@@ -8,6 +8,7 @@ public class Score : MonoBehaviour {
 	public static int score = 0;
     public static int sc = 0;
 	static int highScore = 0;
+    static int fish = 0;
 
 
     static Score instance;
@@ -45,7 +46,7 @@ public class Score : MonoBehaviour {
 	}
 
 	void Update () {
-		GetComponent<GUIText>().text = "Score: " + score + "\nHigh Score: " + highScore;
+		GetComponent<GUIText>().text = "Score: " + score + "\nHigh Score: " + highScore +"\nGold Fish: "+ fish;
 	}
 
     public static void SaveScore(string path) {

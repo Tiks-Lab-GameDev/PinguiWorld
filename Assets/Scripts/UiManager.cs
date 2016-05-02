@@ -20,7 +20,16 @@ public class UiManager : MonoBehaviour
 
     public void Play()
     {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("level");
+    }
+    public void PlayIce()
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene("scene");
+    }
+
+    public void PlayJun()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("junglescene");
     }
 
     public void Settings()
