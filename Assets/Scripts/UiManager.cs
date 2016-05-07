@@ -22,6 +22,10 @@ public class UiManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("level");
     }
+	public void PlaySand()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene("sandLevel");
+	}
     public void PlayIce()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("scene");
