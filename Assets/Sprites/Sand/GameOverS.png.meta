@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 0bc2e2a068c1c0a4cb834f1303ab6b0e
-timeCreated: 1462634241
+guid: f8cb03f6f1226ea41a5a2080e5766edc
+timeCreated: 1462636999
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: OblomJungle_0
-    21300002: OblomJungle_1
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,7 +30,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -40,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,42 +49,7 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: OblomJungle_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 52
-        height: 134
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19, y: 67}
-        - {x: -26, y: -7}
-        - {x: -26, y: -51}
-        - {x: -21, y: -55}
-        - {x: 17, y: -67}
-        - {x: 26, y: -67}
-        - {x: 26, y: -8}
-        - {x: -1, y: 67}
-      - - {x: 23, y: 18}
-        - {x: 25, y: 16}
-        - {x: 26, y: 16}
-        - {x: 26, y: 22}
-        - {x: 23, y: 21}
-    - name: OblomJungle_1
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 0
-        width: 29
-        height: 104
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

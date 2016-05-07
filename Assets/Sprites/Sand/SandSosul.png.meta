@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 0bc2e2a068c1c0a4cb834f1303ab6b0e
-timeCreated: 1462634241
+guid: ed76ec216dcf05c47aaf7ebac4d16ee6
+timeCreated: 1462635727
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: OblomJungle_0
-    21300002: OblomJungle_1
+    21300000: SandSosul_0
+    21300002: SandSosul_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,41 +52,63 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: OblomJungle_0
+    - name: SandSosul_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 52
-        height: 134
+        width: 124
+        height: 325
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -19, y: 67}
-        - {x: -26, y: -7}
-        - {x: -26, y: -51}
-        - {x: -21, y: -55}
-        - {x: 17, y: -67}
-        - {x: 26, y: -67}
-        - {x: 26, y: -8}
-        - {x: -1, y: 67}
-      - - {x: 23, y: 18}
-        - {x: 25, y: 16}
-        - {x: 26, y: 16}
-        - {x: 26, y: 22}
-        - {x: 23, y: 21}
-    - name: OblomJungle_1
+      - - {x: -36, y: 124.5}
+        - {x: -40, y: 123.5}
+        - {x: -44, y: 117.5}
+        - {x: -58, y: -14.5}
+        - {x: -62, y: -97.5}
+        - {x: -62, y: -162.5}
+        - {x: 62, y: -162.5}
+        - {x: 62, y: -120.5}
+        - {x: 60, y: -99.5}
+        - {x: 25, y: 101.5}
+        - {x: -18, y: 124.5}
+      - - {x: 3, y: 158.5}
+        - {x: -2, y: 156.5}
+        - {x: -2, y: 149.5}
+        - {x: 0, y: 148.5}
+        - {x: 6, y: 148.5}
+        - {x: 8, y: 152.5}
+        - {x: 8, y: 158.5}
+      - - {x: -39, y: 162.5}
+        - {x: -39, y: 152.5}
+        - {x: -37, y: 150.5}
+        - {x: -34, y: 150.5}
+        - {x: -32, y: 153.5}
+        - {x: -32, y: 162.5}
+    - name: SandSosul_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 124
         y: 0
-        width: 29
-        height: 104
+        width: 132
+        height: 344
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 66, y: 172}
+        - {x: -66, y: 172}
+        - {x: -66, y: 147}
+        - {x: -65, y: 137}
+        - {x: -51, y: 41}
+        - {x: -26, y: -129}
+        - {x: -20, y: -172}
+        - {x: 21, y: -172}
+        - {x: 27, y: -130}
+        - {x: 58, y: 88}
+        - {x: 66, y: 144}
     outline: []
   spritePackingTag: 
   userData: 
