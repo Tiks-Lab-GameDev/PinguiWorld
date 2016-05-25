@@ -46,7 +46,7 @@ public class Score : MonoBehaviour {
 	}
 
 	void Update () {
-		GetComponent<GUIText>().text = "Score: " + score + "\nHigh Score: " + highScore +"\nGold Fish: "+ fish;
+		GetComponent<GUIText>().text = "Score: " + score + "\nHigh Score: " + highScore +"\nGold Fish: "+ fish + "\nHp:"+bird.hp;
 	}
 
     public static void SaveScore(string path) {

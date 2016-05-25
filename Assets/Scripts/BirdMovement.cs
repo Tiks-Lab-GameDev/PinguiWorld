@@ -15,6 +15,8 @@ public class BirdMovement : MonoBehaviour {
     GameObject go;
     bool didFlap = false;
     public bool isReview = true;
+	public int maxHp = 2;
+	public int hp = 2;
 
 
 	// Use this for initialization
@@ -26,13 +28,10 @@ public class BirdMovement : MonoBehaviour {
         go = GameObject.FindGameObjectWithTag("Pik");
 		if(animator == null) {
 			Debug.LogError("Didn't find animator!");
+			hp = maxHp;
 		}
 	}
-
-    void OnTriggerEnter(Collider2D collider)
-    {
-        if (collider == go.GetComponent<Collider2D>()) ; 
-    }
+		
 	// Do Graphic & Input updates here
 	void Update() {
 
@@ -53,7 +52,12 @@ public class BirdMovement : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
+		Debug.Log ("hp:" + hp);
 		if(godMode == 1) return;	
+		if (collision.gameObject.tag == "Pik" && hp != 0) {
+			hp -= 1;
+			return;
+		}
 		animator.SetTrigger("Death");
 		dead = true;
 	}

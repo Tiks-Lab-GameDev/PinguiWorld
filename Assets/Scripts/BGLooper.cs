@@ -8,7 +8,7 @@ public class BGLooper : MonoBehaviour {
     int numBGPanels = 6;
     float pipeMax = 0.8430938f;
 	float pipeMin = -0.003243029f;
-    float widthOfBGObject;
+    float widthOfBGObject,posx,posy;
 
 
     void Start() {
@@ -31,7 +31,7 @@ public class BGLooper : MonoBehaviour {
         pos = collider.transform.position;
         widthOfBGObject = ((BoxCollider2D)collider).size.x;
 
-        if (collider.tag == "Pipe") PipeLoop();
+		if (collider.tag == "Pipe") PipeLoop(collider);
         else
         {
             if (collider.tag == "BG") BgLoop(collider);
@@ -40,10 +40,14 @@ public class BGLooper : MonoBehaviour {
         collider.transform.position = pos;
     }
 
-    void PipeLoop()
+	void PipeLoop(Collider2D col)
     {
-        pos.y = Random.Range(pipeMin, pipeMax);
-        pos.x += widthOfBGObject * numBGPanels;
+		GameObject go = GameObject.Find ("PipesPre");
+		posy = pos.y = Random.Range(pipeMin, pipeMax);
+		posx = pos.x += widthOfBGObject * numBGPanels;
+		Destroy (col.gameObject);
+		Instantiate (go,new Vector3(posx,posy),new Quaternion()); 
+
     }
 
     void BgLoop(Collider2D collider) {
