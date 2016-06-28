@@ -53,13 +53,17 @@ public class BirdMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		Debug.Log ("hp:" + hp);
-		if(godMode == 1) return;	
+		if(godMode == 1) 
+			return;	
+		if (collision.gameObject.name == "Hat")
+			return;
 		if (collision.gameObject.tag == "Pik" && hp != 0) {
 			hp -= 1;
 			return;
 		}
+		Score.SaveScore ();
 		animator.SetTrigger("Death");
-		dead = true;
+		dead = true;;
 	}
 
     void flap()

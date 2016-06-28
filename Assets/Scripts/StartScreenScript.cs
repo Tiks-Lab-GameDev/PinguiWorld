@@ -28,6 +28,5 @@ public class StartScreenScript : MonoBehaviour {
     
     void deadGui() {
         dbox.SetActive(true);
-        if (!save) { Score.SaveScore(path); save = true; }
     }
 }
