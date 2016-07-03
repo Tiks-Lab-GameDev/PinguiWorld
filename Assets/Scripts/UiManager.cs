@@ -5,6 +5,7 @@ public class UiManager : MonoBehaviour
 {
     BirdMovement bd;
     GameObject pl;
+    int nowPlay;
 
     void Start()
     {
@@ -18,11 +19,23 @@ public class UiManager : MonoBehaviour
 
     }
 
-    public void Play()
+    public void ChooseLvL()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("level");
     }
-	public void PlaySand()
+    public void RestartIce()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("scene");
+    }
+    public void RestartSand()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("sandLevel");
+    }
+    public void RestartJun()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("junglescene");
+    }
+    public void PlaySand()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene("sandLevel");
 	}
