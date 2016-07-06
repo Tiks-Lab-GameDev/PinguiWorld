@@ -5,10 +5,13 @@ public class BGLooper : MonoBehaviour {
 
     Vector3 pos;
 
-    int numBGPanels = 6;
+    int numBGPanels = 12;
     float pipeMax = 0.8430938f;
 	float pipeMin = -0.003243029f;
     float widthOfBGObject,posx,posy;
+    int posFish;
+    GameObject go;
+    int num;
 
 
     void Start() {
@@ -18,6 +21,8 @@ public class BGLooper : MonoBehaviour {
 			pos.y = Random.Range(pipeMin, pipeMax);
 			pipe.transform.position = pos;
 		}
+        posFish = Random.Range(1,10);//в метод писать сколько надо - 14
+        num = 0;
 	}
 
 	void OnTriggerEnter2D(Collider2D collider)
@@ -42,12 +47,16 @@ public class BGLooper : MonoBehaviour {
 
 	void PipeLoop(Collider2D col)
     {
-		GameObject go = GameObject.Find ("PipesPre");
+        Debug.Log("pos" + posFish + " num" + num);
+        if (posFish == (num-3)) { go = GameObject.Find("PipesPreFish"); }
+        else go = GameObject.Find ("PipesPre");
 		posy = pos.y = Random.Range(pipeMin, pipeMax);
 		posx = pos.x += widthOfBGObject * numBGPanels;
 		Destroy (col.gameObject);
-		Instantiate (go,new Vector3(posx,posy),new Quaternion()); 
-
+		Instantiate (go,new Vector3(posx,posy),new Quaternion());
+        if (go == GameObject.Find("PipesPreFish")){ Destroy(go); }
+        num += 1;
+        
     }
 
     void BgLoop(Collider2D collider) {

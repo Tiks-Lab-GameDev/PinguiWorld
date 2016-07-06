@@ -88,4 +88,10 @@ public class Score : MonoBehaviour {
         while (j < index) { resultStr += readStr[j]; j++; }
         return Convert.ToInt32(resultStr);
     }
+    public static void AddFish()
+    {
+        fish += 1;
+        Debug.Log(fish);
+        SaveScore();
+    }
 }

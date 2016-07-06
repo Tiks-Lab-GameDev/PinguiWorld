@@ -19,6 +19,7 @@ public class BirdMovement : MonoBehaviour {
     public bool isReview = true;
 	public int maxHp = 2;
 	public int hp = 2;
+    public int fish;
 
 
 	// Use this for initialization
@@ -28,6 +29,7 @@ public class BirdMovement : MonoBehaviour {
         IsPause = true;
         Time.timeScale = 0;
         pik = GameObject.FindGameObjectWithTag("Pik");
+        fish = Score.GetSaveData(2);
 	}
 		
 	// Do Graphic & Input updates here
@@ -80,6 +82,13 @@ public class BirdMovement : MonoBehaviour {
 
     void isHit(Collision2D collision)
     {
+        if(collision.gameObject.name == "Fish")
+        {
+            Debug.Log("yes");
+            Destroy(GameObject.Find("Fish"));
+            Score.AddFish();
+            return;
+        }
         if (godMode == 1)
             return;
         if (collision.gameObject.name == "Hat")
