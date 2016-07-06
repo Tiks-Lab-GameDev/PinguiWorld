@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
+using System;
 
 public class BirdMovement : MonoBehaviour {
 
@@ -12,7 +14,7 @@ public class BirdMovement : MonoBehaviour {
     public int godMode = PlayerPrefs.GetInt("GodMod");
     Collider2D pikColl;
     public bool dead = false;
-    GameObject go;
+    GameObject pik;
     bool didFlap = false;
     public bool isReview = true;
 	public int maxHp = 2;
@@ -25,22 +27,15 @@ public class BirdMovement : MonoBehaviour {
         animator = transform.GetComponentInChildren<Animator>();
         IsPause = true;
         Time.timeScale = 0;
-        go = GameObject.FindGameObjectWithTag("Pik");
-		if(animator == null) {
-			Debug.LogError("Didn't find animator!");
-			hp = maxHp;
-		}
+        pik = GameObject.FindGameObjectWithTag("Pik");
 	}
 		
 	// Do Graphic & Input updates here
 	void Update() {
-
-		if(Input.GetMouseButtonDown(0) && !IsGuiClick ) {
-				didFlap = true;
-			}
-		
-	}
-
+        if(Input.GetMouseButtonDown(0) && !IsGuiClick ) {
+		    didFlap = true;
+        }
+    }
 	
 	// Do physics engine updates here
 	void FixedUpdate () {
@@ -52,19 +47,9 @@ public class BirdMovement : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
-		Debug.Log ("hp:" + hp);
-		if(godMode == 1) 
-			return;	
-		if (collision.gameObject.name == "Hat")
-			return;
-		if (collision.gameObject.tag == "Pik" && hp != 0) {
-			hp -= 1;
-			return;
-		}
-		Score.SaveScore ();
-		animator.SetTrigger("Death");
-		dead = true;;
-	}
+        isHit(collision);
+        Score.SaveScore();
+    }
 
     void flap()
     {
@@ -92,4 +77,19 @@ public class BirdMovement : MonoBehaviour {
     }
 
     void review() { }
+
+    void isHit(Collision2D collision)
+    {
+        if (godMode == 1)
+            return;
+        if (collision.gameObject.name == "Hat")
+            return;
+        if (collision.gameObject.tag == "Pik" && hp != 0)
+        {
+            hp -= 1;
+            return;
+        }
+        animator.SetTrigger("Death");
+        dead = true; ;
+    }
 }

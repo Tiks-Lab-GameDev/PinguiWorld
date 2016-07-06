@@ -18,7 +18,8 @@ public class UiManager : MonoBehaviour
     {
 
     }
-
+    
+    public void Cust() { UnityEngine.SceneManagement.SceneManager.LoadScene("Customization"); }
     public void ChooseLvL()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("level");
