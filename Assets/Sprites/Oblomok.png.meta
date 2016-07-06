@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a1a4a41657431cd4783cb640418b9a76
-timeCreated: 1461409310
+timeCreated: 1467553219
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,30 +57,30 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 50
-        height: 136
+        width: 49
+        height: 135
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 16, y: -13}
-        - {x: -13, y: 68}
-        - {x: -21, y: 68}
-        - {x: -25, y: 40}
-        - {x: -25, y: -55}
-        - {x: 19, y: -68}
-        - {x: 25, y: -68}
-        - {x: 25, y: -30}
-        - {x: 19, y: -12}
+      - - {x: 17.5, y: -12.5}
+        - {x: -12.5, y: 67.5}
+        - {x: -20.5, y: 67.5}
+        - {x: -24.5, y: 51.5}
+        - {x: -24.5, y: -54.5}
+        - {x: 16.5, y: -67.5}
+        - {x: 24.5, y: -67.5}
+        - {x: 24.5, y: -41.5}
+        - {x: 19.5, y: -14.5}
     - name: Oblomok_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 54
         y: 0
         width: 31
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []
