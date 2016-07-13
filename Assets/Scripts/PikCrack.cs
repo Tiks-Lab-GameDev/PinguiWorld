@@ -18,8 +18,8 @@ public class PikCrack : MonoBehaviour {
 		if (coll.gameObject.tag == "Player") {
 			posx = GetComponent<Transform> ().position.x;
 			posy = GetComponent<Transform> ().position.y;
-			GameObject.FindGameObjectWithTag("Pik").GetComponent<Animation>().Play();
-            Destroy (this.gameObject);
+			GameObject.Find("Pik").GetComponent<Animation>().Play();
+			Destroy (this.gameObject);
 		}
 	}
 }
