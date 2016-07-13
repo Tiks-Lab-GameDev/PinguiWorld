@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class PikCrack : MonoBehaviour {
 	bool iscrack = false;
 	public static GameObject go;
@@ -19,6 +18,7 @@ public class PikCrack : MonoBehaviour {
 		if (coll.gameObject.tag == "Player") {
 			posx = GetComponent<Transform> ().position.x;
 			posy = GetComponent<Transform> ().position.y;
+			GameObject.Find("Pik").GetComponent<Animation>().Play();
 			Destroy (this.gameObject);
 		}
 	}
