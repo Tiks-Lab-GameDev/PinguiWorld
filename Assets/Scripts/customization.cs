@@ -42,10 +42,10 @@ public class customization : MonoBehaviour {
     }
     public void save()
     {
-        if (Score.GetSaveData == x)
-        {
+       // if (Score.GetSaveData == x)
+       // {
             File.Delete("save/002.dat");
             File.WriteAllText("save/002.dat", Convert.ToString(num));
-        }
+        //}
     }
 }
