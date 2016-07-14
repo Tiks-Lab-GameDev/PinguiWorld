@@ -5,6 +5,7 @@ using System;
 
 public class customization : MonoBehaviour {
     public Sprite[] hats;
+    public int[] price;
     public string[] skins;
     public string[] glasses;
     SpriteRenderer sprite;
@@ -13,7 +14,7 @@ public class customization : MonoBehaviour {
     // Use this for initialization
     void Start () {
         sprite = GetComponent<SpriteRenderer>();
-        num = Convert.ToInt32(File.ReadAllText("save/002.dat"));
+        num = SaveScore.numOfHat;
         sprite.sprite = hats[num];
     }
 	
@@ -42,10 +43,17 @@ public class customization : MonoBehaviour {
     }
     public void save()
     {
-       // if (Score.GetSaveData == x)
-       // {
-            File.Delete("save/002.dat");
-            File.WriteAllText("save/002.dat", Convert.ToString(num));
-        //}
+        if (!buy()) return;
+        else
+        {
+            SaveScore.numOfHat = num;
+            SaveScore.Save();
+        }
+    }
+
+    bool buy()
+    {
+        if (SaveScore.fish >= price[num]) { SaveScore.fish = SaveScore.fish - price[num]; return true;}
+        else return false;
     }
 }

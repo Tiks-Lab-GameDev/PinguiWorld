@@ -5,25 +5,27 @@ using System.IO;
 
 public class Score : MonoBehaviour {
 
-    public static int score, highScore, fish, sc = 0;
+    public static int score, sc = 0;
 
     static public void AddPoint() {
 		if(BirdMovement.dead) return;
         score++;
-		if(score > highScore) {
-			highScore = score;
-		}
-	}
+		if(score > SaveScore.highScore) {
+            SaveScore.highScore = score;
+        }
+    }
 
     void Start() {
+        SaveScore.GetData();
         score = sc;
+        sc = 0;
     }
 
 	void Update () {
-		GetComponent<GUIText>().text = "Score: " + score + "\nHigh Score: " + highScore +"\nGold Fish: "+ fish + "\nHp:"+BirdMovement.hp;
+		GetComponent<GUIText>().text = "Score: " + score + "\nHigh Score: " + SaveScore.highScore + "\nGold Fish: "+ SaveScore.fish + "\nHp:"+BirdMovement.hp;
 	}
 
-    public static void SaveScore()
+    public static void SaveSc()
     {
         if (BirdMovement.isReview)
         {
@@ -35,7 +37,7 @@ public class Score : MonoBehaviour {
 
     public static void AddFish()
     {
-        fish++;
+        SaveScore.fish++;
     }
 
 }

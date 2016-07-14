@@ -7,25 +7,25 @@ public class SaveScore : MonoBehaviour {
     public static string HighScore = "HighScore", Skin = "NumOfSkin", Fish = "Fish", Hat = "NumOfHat", Glasses = "NumOfGlasses", MaxHp = "MaxHp";
     // Use this for initialization
     void Start () {
-	
-	}
+        GetData();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
 
-    public static void GetData(string name)
+    public static void GetData()
     {
-        highScore = PlayerPrefs.GetInt(HighScore, 0);
-        fish = PlayerPrefs.GetInt(Fish, 0);
-        numOfHat = PlayerPrefs.GetInt(Hat, 0);
-        numOfSkin = PlayerPrefs.GetInt(Skin, 0);
-        numOfGlasses = PlayerPrefs.GetInt(Glasses, 0);
-        maxHp = PlayerPrefs.GetInt(MaxHp, 0);
+        highScore = PlayerPrefs.GetInt(HighScore);
+        fish = PlayerPrefs.GetInt(Fish);
+        numOfHat = PlayerPrefs.GetInt(Hat);
+        numOfSkin = PlayerPrefs.GetInt(Skin);
+        numOfGlasses = PlayerPrefs.GetInt(Glasses);
+        maxHp = PlayerPrefs.GetInt(MaxHp);
     }
 
-    public static void Save()
+    public static void SaveAll()
     {
         PlayerPrefs.SetInt(HighScore, highScore);
         PlayerPrefs.SetInt(Fish, fish);
@@ -33,5 +33,11 @@ public class SaveScore : MonoBehaviour {
         PlayerPrefs.SetInt(Hat, numOfHat);
         PlayerPrefs.SetInt(Glasses, numOfGlasses);
         PlayerPrefs.SetInt(MaxHp, maxHp);
+    }
+
+    public static void Save()
+    {
+        PlayerPrefs.Save();
+        SaveAll();
     }
 }

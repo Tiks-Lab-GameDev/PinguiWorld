@@ -5,12 +5,11 @@ using System.IO;
 
 public class ChooseHat : MonoBehaviour {
 
-    int HatIndex;
     public Sprite[] hat;
     SpriteRenderer sprite;
     // Use this for initialization
     void Start () {
-        HatIndex = Convert.ToInt32(File.ReadAllText("save/002.dat"));
+        SaveScore.GetData();
         sprite = GetComponent<SpriteRenderer>();
         DrawHat();
     }
@@ -22,6 +21,6 @@ public class ChooseHat : MonoBehaviour {
 
     void DrawHat()
     {
-        sprite.sprite = hat[HatIndex];
+        sprite.sprite = hat[SaveScore.numOfHat];
     }
 }

@@ -17,9 +17,7 @@ public class BirdMovement : MonoBehaviour {
     GameObject pik;
     bool didFlap = false;
     public static bool isReview = true;
-    public int maxHp;
     public static int hp;
-    public int fish;
 
 
 	// Use this for initialization
@@ -30,7 +28,6 @@ public class BirdMovement : MonoBehaviour {
         Time.timeScale = 0;
         pik = GameObject.FindGameObjectWithTag("Pik");
         dead = false;
-        fish = SaveScore.fish;
         hp = SaveScore.maxHp;
 	}
 		
@@ -101,6 +98,5 @@ public class BirdMovement : MonoBehaviour {
         }
         animator.SetTrigger("Death");
         dead = true;
-        SaveScore.Save();
     }
 }
