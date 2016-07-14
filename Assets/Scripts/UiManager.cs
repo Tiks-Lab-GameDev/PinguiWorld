@@ -24,18 +24,6 @@ public class UiManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("level");
     }
-    public void RestartIce()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("scene");
-    }
-    public void RestartSand()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("sandLevel");
-    }
-    public void RestartJun()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("junglescene");
-    }
     public void PlaySand()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene("sandLevel");
@@ -58,7 +46,6 @@ public class UiManager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
-
     }
 
     public void Back()
@@ -86,12 +73,8 @@ public class UiManager : MonoBehaviour
 
     public void GodMod() { if (PlayerPrefs.GetInt("GodMod") == 0) { PlayerPrefs.SetInt("GodMod", 1); Debug.Log(PlayerPrefs.GetInt("GodMod")); } else PlayerPrefs.SetInt("GodMod", 0); }
 
-    public void Review() { if (bd.isReview)
-        {
-            Score.sc = Score.score;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("scene");
-            Score.score = Score.sc;
-        }
-        else Score.sc = 0;
+    public void Review() {
+        Score.SaveScore();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("scene"); 
     }
 }

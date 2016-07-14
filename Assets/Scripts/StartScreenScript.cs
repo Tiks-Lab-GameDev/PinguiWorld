@@ -6,8 +6,6 @@ public class StartScreenScript : MonoBehaviour {
 
     BirdMovement bird;
     public GameObject dbox;
-    bool save;
-    string path = "Save/001.dat";
 
     // Use this for initialization
     void Start () {
@@ -15,7 +13,6 @@ public class StartScreenScript : MonoBehaviour {
 		bird = player_go.GetComponent<BirdMovement>();
         dbox = GameObject.Find("DeathBack");
         dbox.SetActive(false);
-        save = false;
     }
 	
 	// Update is called once per frame
@@ -23,7 +20,7 @@ public class StartScreenScript : MonoBehaviour {
 	}
 
     void OnGUI (){
-            if (bird.dead) deadGui();
+            if (BirdMovement.dead) deadGui();
 		}
     
     void deadGui() {

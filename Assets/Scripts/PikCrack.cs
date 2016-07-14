@@ -16,8 +16,8 @@ public class PikCrack : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Player") {
-			posx = GetComponent<Transform> ().position.x;
-			posy = GetComponent<Transform> ().position.y;
+			posx = GetComponent<Transform>().position.x;
+			posy = GetComponent<Transform>().position.y;
 			this.GetComponent<Animation>().Play();
             this.GetComponent<Collider2D>().enabled = false;
 		}

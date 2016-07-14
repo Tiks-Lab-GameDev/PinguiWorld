@@ -13,12 +13,12 @@ public class BirdMovement : MonoBehaviour {
 	public bool IsGuiClick = false;
     public int godMode = PlayerPrefs.GetInt("GodMod");
     Collider2D pikColl;
-    public bool dead = false;
+    public static bool dead = false;
     GameObject pik;
     bool didFlap = false;
-    public bool isReview = true;
-	public int maxHp = 2;
-	public int hp = 2;
+    public static bool isReview = true;
+    public int maxHp;
+    public static int hp;
     public int fish;
 
 
@@ -29,7 +29,9 @@ public class BirdMovement : MonoBehaviour {
         IsPause = true;
         Time.timeScale = 0;
         pik = GameObject.FindGameObjectWithTag("Pik");
-        fish = Score.GetSaveData(2);
+        dead = false;
+        fish = SaveScore.fish;
+        hp = SaveScore.maxHp;
 	}
 		
 	// Do Graphic & Input updates here
@@ -50,7 +52,7 @@ public class BirdMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
         isHit(collision);
-        Score.SaveScore();
+        SaveScore.Save();
     }
 
     void flap()
@@ -84,7 +86,6 @@ public class BirdMovement : MonoBehaviour {
     {
         if(collision.gameObject.name == "Fish")
         {
-            Debug.Log("yes");
             Destroy(GameObject.Find("Fish"));
             Score.AddFish();
             return;
@@ -99,6 +100,7 @@ public class BirdMovement : MonoBehaviour {
             return;
         }
         animator.SetTrigger("Death");
-        dead = true; ;
+        dead = true;
+        SaveScore.Save();
     }
 }
