@@ -5,7 +5,7 @@ public class BGLooper : MonoBehaviour {
 
     Vector3 pos;
 
-    int numBGPanels = 12;
+    int numBGPanels = 6;
     float pipeMax = 0.8430938f;
 	float pipeMin = -0.003243029f;
     float widthOfBGObject,posx,posy;

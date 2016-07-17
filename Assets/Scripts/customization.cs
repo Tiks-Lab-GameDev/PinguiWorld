@@ -19,7 +19,7 @@ public class customization : MonoBehaviour {
         num = SaveScore.numOfHat;
         sprite.sprite = hats[num];
         size = hats.Length;
-        isBuy = new bool[size - 1];
+        isBuy = new bool[size];
     }
 	
 	// Update is called once per frame
@@ -52,12 +52,13 @@ public class customization : MonoBehaviour {
         {
             SaveScore.numOfHat = num;
             SaveScore.Save();
+            Debug.Log("Buy Succsec");
         }
     }
 
     bool buy()
     {
-        if (isBuy[num] == false) return false;
+        //if (isBuy[num] == false) return false;
         if (SaveScore.fish >= price[num]) { SaveScore.fish = SaveScore.fish - price[num]; return true;}
         else return false;
     }

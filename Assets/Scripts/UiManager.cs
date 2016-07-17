@@ -71,8 +71,6 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public void GodMod() { if (PlayerPrefs.GetInt("GodMod") == 0) { PlayerPrefs.SetInt("GodMod", 1); Debug.Log(PlayerPrefs.GetInt("GodMod")); } else PlayerPrefs.SetInt("GodMod", 0); }
-
     public void Review() {
         Score.SaveSc();
         UnityEngine.SceneManagement.SceneManager.LoadScene("scene"); 

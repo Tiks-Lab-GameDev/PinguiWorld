@@ -11,7 +11,7 @@ public class BirdMovement : MonoBehaviour {
 	public float forwardSpeed = 1f;
     public bool IsPause = false;
 	public bool IsGuiClick = false;
-    public int godMode = PlayerPrefs.GetInt("GodMod");
+    public int godMode;
     Collider2D pikColl;
     public static bool dead = false;
     GameObject pik;
@@ -29,7 +29,9 @@ public class BirdMovement : MonoBehaviour {
         pik = GameObject.FindGameObjectWithTag("Pik");
         dead = false;
         hp = SaveScore.maxHp;
-	}
+        godMode = PlayerPrefs.GetInt("GodMode");
+
+    }
 		
 	// Do Graphic & Input updates here
 	void Update() {
