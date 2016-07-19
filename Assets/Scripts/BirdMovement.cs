@@ -59,6 +59,7 @@ public class BirdMovement : MonoBehaviour {
         rb.AddForce(Vector2.up * flapSpeed);
         animator.SetTrigger("DoFlap");
         didFlap = false;
+        GameObject.Find("Flap_sound").GetComponent<AudioSource>().Play();
     }
 
     void rotation()
@@ -95,10 +96,12 @@ public class BirdMovement : MonoBehaviour {
             return;
         if (collision.gameObject.tag == "Pik" && hp != 0)
         {
+            GameObject.Find("Hit_sound").GetComponent<AudioSource>().Play();
             hp -= 1;
             return;
         }
         animator.SetTrigger("Death");
+        GameObject.Find("Die_sound").GetComponent<AudioSource>().Play();
         dead = true;
     }
 }

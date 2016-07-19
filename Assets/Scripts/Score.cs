@@ -10,7 +10,8 @@ public class Score : MonoBehaviour {
     static public void AddPoint() {
 		if(BirdMovement.dead) return;
         score++;
-		if(score > SaveScore.highScore) {
+         GameObject.Find("Point_sound").GetComponent<AudioSource>().Play();
+        if (score > SaveScore.highScore) {
             SaveScore.highScore = score;
         }
     }
