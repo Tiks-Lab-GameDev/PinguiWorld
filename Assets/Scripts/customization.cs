@@ -47,18 +47,19 @@ public class customization : MonoBehaviour {
     }
     public void save()
     {
-        if (!buy()) return;
+        if (!buy()) { GameObject.Find("UIManager").GetComponent<UiManager>().CloseErorr(); return; }
         else
         {
             SaveScore.numOfHat = num;
             SaveScore.Save();
-            Debug.Log("Buy Succsec");
+            GameObject.Find("UIManager").GetComponent<UiManager>().CloseBuy();
         }
     }
 
     bool buy()
     {
         //if (isBuy[num] == false) return false;
+        Debug.Log(SaveScore.fish);
         if (SaveScore.fish >= price[num]) { SaveScore.fish = SaveScore.fish - price[num]; return true;}
         else return false;
     }

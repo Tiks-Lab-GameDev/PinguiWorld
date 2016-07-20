@@ -6,6 +6,7 @@ public class UiManager : MonoBehaviour
     BirdMovement bd;
     GameObject pl;
     int nowPlay;
+    bool isActive = false;
 
     void Start()
     {
@@ -74,5 +75,17 @@ public class UiManager : MonoBehaviour
     public void Review() {
         Score.SaveSc();
         UnityEngine.SceneManagement.SceneManager.LoadScene("scene"); 
+    }
+
+    public void CloseBuy()
+    {
+        isActive = !isActive; 
+        GameObject.Find("MessageBuy").GetComponent<SpriteRenderer>().enabled = isActive;
+    }
+
+    public void CloseErorr()
+    {
+        isActive = !isActive;
+        GameObject.Find("MessageErorr").GetComponent<SpriteRenderer>().enabled = isActive;
     }
 }
