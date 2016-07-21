@@ -20,16 +20,17 @@ public class customization : MonoBehaviour {
         sprite.sprite = hats[num];
         size = hats.Length;
         isBuy = new bool[size];
+        fishUpdate();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
+
+    // Update is called once per frame
+    void Update () {
+    }
 
     void change()
     {
         sprite.sprite = hats[num];
+        fishUpdate();
     }
 
     public void plusNum()
@@ -52,6 +53,7 @@ public class customization : MonoBehaviour {
         {
             SaveScore.numOfHat = num;
             SaveScore.Save();
+            fishUpdate();
             GameObject.Find("UIManager").GetComponent<UiManager>().CloseBuy();
         }
     }
@@ -62,5 +64,10 @@ public class customization : MonoBehaviour {
         Debug.Log(SaveScore.fish);
         if (SaveScore.fish >= price[num]) { SaveScore.fish = SaveScore.fish - price[num]; return true;}
         else return false;
+    }
+
+    void fishUpdate()
+    {
+        GetComponent<GUIText>().text = "Total: " + SaveScore.fish + "\n Price: " + price[num];
     }
 }

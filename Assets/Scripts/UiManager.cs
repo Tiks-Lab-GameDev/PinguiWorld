@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
     GameObject pl;
     int nowPlay;
     bool isActive = false;
+    bool isActive1 = false;
 
     void Start()
     {
@@ -79,13 +80,18 @@ public class UiManager : MonoBehaviour
 
     public void CloseBuy()
     {
-        isActive = !isActive; 
-        GameObject.Find("MessageBuy").GetComponent<SpriteRenderer>().enabled = isActive;
+        isActive = !isActive;
+        GameObject.Find("Message").GetComponent<SpriteRenderer>().sprite = GameObject.Find("MessageBuy").GetComponent<SpriteRenderer>().sprite;
     }
 
     public void CloseErorr()
     {
-        isActive = !isActive;
-        GameObject.Find("MessageErorr").GetComponent<SpriteRenderer>().enabled = isActive;
+        isActive1 = !isActive1;
+        GameObject.Find("Message").GetComponent<SpriteRenderer>().sprite = GameObject.Find("MessageErorr").GetComponent<SpriteRenderer>().sprite;
+    }
+
+    public void CloseMessage()
+    {
+        GameObject.Find("Message").GetComponent<SpriteRenderer>().sprite = null;
     }
 }
