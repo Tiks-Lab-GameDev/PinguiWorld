@@ -4,7 +4,8 @@ using System.Collections;
 public class SaveScore : MonoBehaviour {
 
     public static int score, highScore, numOfSkin, fish, numOfHat, numOfGlasses, maxHp, sc = 0;
-    public static string HighScore = "HighScore", Skin = "NumOfSkin", Fish = "Fish", Hat = "NumOfHat", Glasses = "NumOfGlasses", MaxHp = "MaxHp";
+    public static float volume;
+    public static string HighScore = "HighScore", Skin = "NumOfSkin", Fish = "Fish", Hat = "NumOfHat", Glasses = "NumOfGlasses", MaxHp = "MaxHp", Volume = "Volume";
     // Use this for initialization
     void Start () {
         GetData();
@@ -23,6 +24,7 @@ public class SaveScore : MonoBehaviour {
         numOfSkin = PlayerPrefs.GetInt(Skin);
         numOfGlasses = PlayerPrefs.GetInt(Glasses);
         maxHp = PlayerPrefs.GetInt(MaxHp);
+        volume = PlayerPrefs.GetFloat(Volume);
     }
 
     public static void SaveAll()
@@ -33,6 +35,7 @@ public class SaveScore : MonoBehaviour {
         PlayerPrefs.SetInt(Hat, numOfHat);
         PlayerPrefs.SetInt(Glasses, numOfGlasses);
         PlayerPrefs.SetInt(MaxHp, maxHp);
+        PlayerPrefs.SetFloat(Volume, volume);
     }
 
     public static void Save()

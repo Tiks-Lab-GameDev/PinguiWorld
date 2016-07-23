@@ -69,7 +69,7 @@ public class UiManager : MonoBehaviour
             bd.IsGuiClick = false;
             Time.timeScale = 1;
             bd.IsPause = false;
-            if (GameObject.Find("Start_but")) { Destroy(GameObject.Find("Start_but")); }
+            if (GameObject.Find("Start_but")) { Destroy(GameObject.Find("Start_but"));bd.start = false; }
         }
     }
 

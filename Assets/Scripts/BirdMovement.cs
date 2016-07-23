@@ -10,6 +10,7 @@ public class BirdMovement : MonoBehaviour {
     public float flapSpeed = 100f;
 	public float forwardSpeed = 1f;
     public bool IsPause = false;
+    public bool start;
 	public bool IsGuiClick = false;
     public int godMode;
     Collider2D pikColl;
@@ -24,6 +25,7 @@ public class BirdMovement : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         animator = transform.GetComponentInChildren<Animator>();
+        start = true;
         IsPause = true;
         Time.timeScale = 0;
         pik = GameObject.FindGameObjectWithTag("Pik");
