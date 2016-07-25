@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.IO;
 using System;
@@ -52,6 +53,7 @@ public class customization : MonoBehaviour {
         else
         {
             SaveScore.numOfHat = num;
+            SaveScore.maxHp = num;
             SaveScore.Save();
             fishUpdate();
             GameObject.Find("UIManager").GetComponent<UiManager>().CloseBuy();
@@ -68,6 +70,6 @@ public class customization : MonoBehaviour {
 
     void fishUpdate()
     {
-        GetComponent<GUIText>().text = "Total: " + SaveScore.fish + "\n Price: " + price[num];
+        GameObject.Find("Price").GetComponent<Text>().text = "Fish: " + SaveScore.fish + "\nPrice: " + price[num];
     }
 }
