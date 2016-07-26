@@ -5,7 +5,7 @@ using AppodealAds.Unity.Common;
 
 public class ADS : MonoBehaviour
 {
-    string appKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
+    string appKey = "b8fdc19744ddd35fa4adc69fa620645d57e6b52959ee3798";
     public bool Banner, Reward, Video, Interst;
     // Use this for initialization
     void Start () {
