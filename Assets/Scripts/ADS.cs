@@ -9,8 +9,11 @@ public class ADS : MonoBehaviour
     public bool Banner, Reward, Video, Interst;
     // Use this for initialization
     void Start () {
-        Appodeal.initialize(appKey, Appodeal.BANNER);
-        Appodeal.show(Appodeal.BANNER);
+        if (Banner) ShowBanner();
+        if (Reward) ShowReward();
+        if (Video) ShowVideo();
+        if (Interst) ShowInterstitial();
+
     }
 	
 	// Update is called once per frame
