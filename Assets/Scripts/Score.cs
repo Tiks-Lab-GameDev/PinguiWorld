@@ -39,6 +39,7 @@ public class Score : MonoBehaviour {
     public static void AddFish()
     {
         SaveScore.fish++;
+        SaveScore.Save();
     }
 
 }
