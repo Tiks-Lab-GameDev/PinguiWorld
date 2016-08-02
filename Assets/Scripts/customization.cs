@@ -11,14 +11,16 @@ public class customization : MonoBehaviour {
     public string[] skins;
     public string[] glasses;
     SpriteRenderer sprite;
-    int num;
-    int size;
+    int size,num;
+    Main main;
+    SaveScore ss;
 
     // Use this for initialization
     void Start () {
+        main = GameObject.Find("Scripts").GetComponent<Main>();
+        ss = GameObject.Find("Scripts").GetComponent<SaveScore>();
         sprite = GetComponent<SpriteRenderer>();
-        num = SaveScore.numOfHat;
-        sprite.sprite = hats[num];
+        sprite.sprite = hats[main.Hat];
         size = hats.Length;
         isBuy = new bool[size];
         fishUpdate();
@@ -31,19 +33,20 @@ public class customization : MonoBehaviour {
     void change()
     {
         sprite.sprite = hats[num];
+        main.Hat = num;
         fishUpdate();
     }
 
     public void plusNum()
     {
-        if (num == hats.Length-1) num = 0;
+        if (num == size-1) num = 0;
         else num += 1;
         change();
     }
 
     public void minusNum()
     {
-        if (num == 0) num = hats.Length - 1;
+        if (num == 0) num = size - 1;
         else num -= 1;
         change();
     }
@@ -52,9 +55,8 @@ public class customization : MonoBehaviour {
         if (!buy()) { GameObject.Find("UIManager").GetComponent<UiManager>().CloseErorr(); return; }
         else
         {
-            SaveScore.numOfHat = num;
-            SaveScore.maxHp = num;
-            SaveScore.Save();
+            main.Maxhp = main.Hat;
+            ss.Save();
             fishUpdate();
             GameObject.Find("UIManager").GetComponent<UiManager>().CloseBuy();
         }
@@ -63,13 +65,13 @@ public class customization : MonoBehaviour {
     bool buy()
     {
         //if (isBuy[num] == false) return false;
-        Debug.Log(SaveScore.fish);
-        if (SaveScore.fish >= price[num]) { SaveScore.fish = SaveScore.fish - price[num]; return true;}
+        //Debug.Log(Gf);
+        if (main.Gf >= price[main.Hat]) { main.Gf = main.Gf - price[main.Hat]; return true;}
         else return false;
     }
 
     void fishUpdate()
     {
-        GameObject.Find("Price").GetComponent<Text>().text = "Fish: " + SaveScore.fish + "\nPrice: " + price[num];
+        GameObject.Find("Price").GetComponent<Text>().text = "Fish: " + main.Gf + "\nPrice: " + price[main.Hat];
     }
 }

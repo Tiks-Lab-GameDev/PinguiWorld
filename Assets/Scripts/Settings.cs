@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Settings : MonoBehaviour {
-
+public class Settings : MonoBehaviour
+{
 	// Use this for initialization
 	void Start () {
 
@@ -15,9 +15,9 @@ public class Settings : MonoBehaviour {
     {
         
     }
-    public void Volume()
+    public void VolumeSwitch()
     {
-        PlayerPrefs.SetFloat(SaveScore.Volume,GetComponent<Slider>().value);
+        PlayerPrefs.SetFloat("Volume",GetComponent<Slider>().value);
     }
     void Change() {
         if (GameObject.Find("GodModeToggle").GetComponent<Toggle>().isOn)  PlayerPrefs.SetInt("GodMode", 0);

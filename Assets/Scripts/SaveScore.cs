@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SaveScore : MonoBehaviour {
+public class SaveScore : MonoBehaviour
+{
 
-    public static int score, highScore, numOfSkin, fish, numOfHat, numOfGlasses, maxHp, sc = 0;
-    public static float volume;
-    public static string HighScore = "HighScore", Skin = "NumOfSkin", Fish = "Fish", Hat = "NumOfHat", Glasses = "NumOfGlasses", MaxHp = "MaxHp", Volume = "Volume";
+    string HighScore = "HighScore", Skin = "NumOfSkin", Fish = "Fish", NumHat = "NumOfHat", Glasses = "NumOfGlasses", MaxHp = "MaxHp", Vol = "Volume";
+    Main main;
     // Use this for initialization
     void Start () {
+        main = GameObject.Find("Scripts").GetComponent<Main>();
         GetData();
     }
 	
@@ -15,32 +16,55 @@ public class SaveScore : MonoBehaviour {
 	void Update () {
 	
 	}
-
-    public static void GetData()
+    //move to data.cs
+    public void GetData()
     {
-        highScore = PlayerPrefs.GetInt(HighScore);
-        fish = PlayerPrefs.GetInt(Fish);
-        numOfHat = PlayerPrefs.GetInt(Hat);
-        numOfSkin = PlayerPrefs.GetInt(Skin);
-        numOfGlasses = PlayerPrefs.GetInt(Glasses);
-        maxHp = PlayerPrefs.GetInt(MaxHp);
-        volume = PlayerPrefs.GetFloat(Volume);
+        main.Highscore = PlayerPrefs.GetInt("HighScore");
+        main.Gf = PlayerPrefs.GetInt("Fish");
+        main.Hat = PlayerPrefs.GetInt("NumOfHat");
+        // numOfSkin = PlayerPrefs.GetInt(Skin);
+        // numOfGlasses = PlayerPrefs.GetInt(Glasses);
+        main.Maxhp = PlayerPrefs.GetInt("MaxHp");
+        main.Volume = PlayerPrefs.GetFloat("Volume");
+        main.Hp = main.Maxhp;
+        main.Score = 0;
+        main.IsPause = true;
+        main.IsReview = true;
+        main.Dead = false;
+        main.Godmode = false;
+        main.IsStart = true;
     }
+    //end
 
-    public static void SaveAll()
+    void SaveAll()
     {
-        PlayerPrefs.SetInt(HighScore, highScore);
-        PlayerPrefs.SetInt(Fish, fish);
-        PlayerPrefs.SetInt(Skin, numOfSkin);
-        PlayerPrefs.SetInt(Hat, numOfHat);
-        PlayerPrefs.SetInt(Glasses, numOfGlasses);
-        PlayerPrefs.SetInt(MaxHp, maxHp);
-        PlayerPrefs.SetFloat(Volume, volume);
+        PlayerPrefs.SetInt(HighScore, main.Highscore);
+        PlayerPrefs.SetInt(Fish, main.Gf);
+     //   PlayerPrefs.SetInt(Skin, numOfSkin);
+        PlayerPrefs.SetInt(NumHat, main.Hat);
+      //  PlayerPrefs.SetInt(Glasses, numOfGlasses);
+        PlayerPrefs.SetInt(MaxHp, main.Maxhp);
+        PlayerPrefs.SetFloat(Vol, main.Volume);
     }
-
-    public static void Save()
+    /// <summary>
+    /// save all data
+    /// </summary>
+    public void Save()
     {
         PlayerPrefs.Save();
         SaveAll();
+    }
+
+    public void AddFish()
+    {
+        main.Gf++;
+        Save();
+    }
+
+    public void AddPoint()
+    {
+        main.Score++;
+        GameObject.Find("Point_sound").GetComponent<AudioSource>().Play();
+        if (main.Score > main.Highscore) main.Highscore = main.Score;
     }
 }

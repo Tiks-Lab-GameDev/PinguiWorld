@@ -3,16 +3,16 @@ using System.Collections;
 
 public class UiManager : MonoBehaviour
 {
-    BirdMovement bd;
-    GameObject pl;
     int nowPlay;
     bool isActive = false;
     bool isActive1 = false;
+    BirdMovement bd;
+    Main main;
 
     void Start()
     {
-        pl = GameObject.FindGameObjectWithTag("Player");
-        bd = pl.GetComponent<BirdMovement>();
+        main = GameObject.Find("Scripts").GetComponent<Main>();
+        bd = GameObject.Find("PlayerBird").GetComponent<BirdMovement>();
     }
 
     // Update is called once per frame
@@ -57,24 +57,22 @@ public class UiManager : MonoBehaviour
 
     public void Pause()
     {
-
-        if (!bd.IsPause)
+        main.IsPause = !main.IsPause;
+        if (main.IsPause)
         {
             bd.IsGuiClick = true;
             Time.timeScale = 0;
-            bd.IsPause = true;
         }
         else
         {
             bd.IsGuiClick = false;
             Time.timeScale = 1;
-            bd.IsPause = false;
-            if (GameObject.Find("Start_but")) { Destroy(GameObject.Find("Start_but"));bd.start = false; }
+            if (GameObject.Find("Start_but")) { Destroy(GameObject.Find("Start_but"));main.IsStart = false; }
         }
     }
 
     public void Review() {
-        Score.SaveSc();
+        //SaveSc();
         UnityEngine.SceneManagement.SceneManager.LoadScene("scene"); 
     }
 

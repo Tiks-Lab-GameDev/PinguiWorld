@@ -1,38 +1,30 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.IO;
-using System;
 
-public class BirdMovement : MonoBehaviour {
+public class BirdMovement : MonoBehaviour
+{
 
     Animator animator;
     Rigidbody2D rb;
     public float flapSpeed = 100f;
 	public float forwardSpeed = 1f;
-    public bool IsPause = false;
-    public bool start;
-	public bool IsGuiClick = false;
-    public int godMode;
+    public bool IsGuiClick;
     Collider2D pikColl;
-    public static bool dead = false;
     GameObject pik;
+    Main main;
+    SaveScore ss;
     bool didFlap = false;
-    public static bool isReview = true;
-    public static int hp;
+    
 
 
 	// Use this for initialization
 	void Start () {
+        main = GameObject.Find("Scripts").GetComponent<Main>();
+        ss = GameObject.Find("Scripts").GetComponent<SaveScore>();
+        IsGuiClick = false;
         rb = GetComponent<Rigidbody2D>();
         animator = transform.GetComponentInChildren<Animator>();
-        start = true;
-        IsPause = true;
         Time.timeScale = 0;
         pik = GameObject.FindGameObjectWithTag("Pik");
-        dead = false;
-        hp = SaveScore.maxHp;
-        godMode = PlayerPrefs.GetInt("GodMode");
-
     }
 		
 	// Do Graphic & Input updates here
@@ -44,7 +36,7 @@ public class BirdMovement : MonoBehaviour {
 	
 	// Do physics engine updates here
 	void FixedUpdate () {
-        if(dead) return;
+        if(main.Dead) return;
         move();
         if (didFlap) flap();
         rotation();
@@ -53,7 +45,7 @@ public class BirdMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
         isHit(collision);
-        SaveScore.Save();
+         // change on my method if dont work save(); on savescore.cs
     }
 
     void flap()
@@ -89,21 +81,22 @@ public class BirdMovement : MonoBehaviour {
         if(collision.gameObject.name == "Fish")
         {
             Destroy(GameObject.Find("Fish"));
-            Score.AddFish();
+            ss.AddFish();
             return;
         }
-        if (godMode == 1)
+        if (main.Godmode == true)
             return;
         if (collision.gameObject.name == "Hat")
             return;
-        if (collision.gameObject.tag == "Pik" && hp != 0)
+        if (collision.gameObject.tag == "Pik" && main.Hp != 0)
         {
-            GameObject.Find("Hit_sound").GetComponent<AudioSource>().Play();
-            hp -= 1;
+            GameObject.Find("Hit_sounds").GetComponent<AudioSource>().Play();
+            main.Hp -= 1;
             return;
         }
         animator.SetTrigger("Death");
         GameObject.Find("Die_sound").GetComponent<AudioSource>().Play();
-        dead = true;
+        main.Dead = true;
+        ss.Save();
     }
 }

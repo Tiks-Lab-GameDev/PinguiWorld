@@ -1,45 +1,27 @@
 ﻿using UnityEngine;
-using System;
-using System.Text;
-using System.IO;
 
 public class Score : MonoBehaviour {
 
-    public static int score, sc = 0;
-
-    static public void AddPoint() {
-		if(BirdMovement.dead) return;
-        score++;
-         GameObject.Find("Point_sound").GetComponent<AudioSource>().Play();
-        if (score > SaveScore.highScore) {
-            SaveScore.highScore = score;
-        }
-    }
+    int sc = 0;
+    Main main;
 
     void Start() {
-        SaveScore.GetData();
-        score = sc;
+        main = GameObject.Find("Scripts").GetComponent<Main>();
+        main.Score = sc;
         sc = 0;
     }
 
 	void Update () {
-		GetComponent<GUIText>().text = "Score: " + score + "\nHigh Score: " + SaveScore.highScore + "\nGold Fish: "+ SaveScore.fish + "\nHp:"+BirdMovement.hp;
+		GetComponent<GUIText>().text = "Score: " + main.Score + "\nHigh Score: " + main.Highscore + "\nGold Fish: "+ main.Gf + "\nHp:"+ main.Hp;
 	}
 
-    public static void SaveSc()
+    public void SaveSc()
     {
-        if (BirdMovement.isReview)
+        if (main.IsReview)
         {
-            sc = score;
+            sc = main.Score;
         }
-        else Score.sc = 0;
-    }
-
-
-    public static void AddFish()
-    {
-        SaveScore.fish++;
-        SaveScore.Save();
+        else sc = 0;
     }
 
 }

@@ -3,13 +3,15 @@ using System.Collections;
 using System;
 using System.IO;
 
-public class ChooseHat : MonoBehaviour {
+public class ChooseHat : MonoBehaviour
+{
 
-    public Sprite[] hat;
+    public Sprite[] hats;
     SpriteRenderer sprite;
+    Main main;
     // Use this for initialization
     void Start () {
-        SaveScore.GetData();
+        main = GameObject.Find("Scripts").GetComponent<Main>();
         sprite = GetComponent<SpriteRenderer>();
         DrawHat();
     }
@@ -21,6 +23,6 @@ public class ChooseHat : MonoBehaviour {
 
     void DrawHat()
     {
-        sprite.sprite = hat[SaveScore.numOfHat];
+        sprite.sprite = hats[main.Hat];
     }
 }

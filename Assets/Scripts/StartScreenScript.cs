@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StartScreenScript : MonoBehaviour {
+public class StartScreenScript : MonoBehaviour
+{
 
-
-    BirdMovement bird;
     public GameObject dbox, pbox;
+    Main main;
 
     // Use this for initialization
     void Start () {
-        GameObject player_go = GameObject.FindGameObjectWithTag("Player");
-		bird = player_go.GetComponent<BirdMovement>();
+        main = GameObject.Find("Scripts").GetComponent<Main>();
         dbox = GameObject.Find("DeathBack");
         pbox = GameObject.Find("PauseMenu");
         pbox.SetActive(false);
@@ -22,9 +21,9 @@ public class StartScreenScript : MonoBehaviour {
 	}
 
     void OnGUI (){
-        if (BirdMovement.dead) deadGui();
-        if (!bird.start) { if (bird.IsPause) pbox.SetActive(true); }
-        if (pbox.active && !bird.IsPause) pbox.SetActive(false);
+        if (main.Dead) deadGui();
+        if (!main.IsStart) { if (main.IsPause) pbox.SetActive(true); }
+        if (pbox.active && !main.IsPause) pbox.SetActive(false);
     }
     
     void deadGui() {
