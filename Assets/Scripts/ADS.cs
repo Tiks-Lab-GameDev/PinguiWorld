@@ -8,31 +8,27 @@ public class ADS : MonoBehaviour, IInterstitialAdListener
 {
     static string appKey = "9fec31db4775c144bfa9af550e65b5bceb26ab23c12f2d84";
     public bool Banner, Reward, Video, Interst;
-    int ite;
+    public static int ite;
     // Use this for initialization
 
     void Start () {
 
         if (Banner) ShowBanner();
         if (Reward) ShowReward();
-        if (Video && ite == 3) //заменить на dontdestroyonload
+        if (Video && ite == 0) //заменить на dontdestroyonload
         {
-            loop(); ShowVideo();
-            DontDestroyOnLoad(gameObject);
+            ShowVideo();
+            Debug.Log(ite);
         }
         if (Interst) ShowInterstitial();
-
+        Load.loop();
+        Debug.Log(ite);
     }
 
     // Update is called once per frame
     void Update () {
 	
 	}
-    void loop()
-    {
-        if (ite == 3) ite = 0;
-        ite += 1;
-    }
 
     public static void ShowBanner()
     {
