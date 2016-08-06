@@ -74,16 +74,16 @@ public class BirdMovement : MonoBehaviour
         rb.AddForce(Vector2.right * forwardSpeed);
     }
 
-    void review() { }
-
-    void isHit(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.gameObject.name == "Fish")
+        if (collider.gameObject.name == "Fish")
         {
             Destroy(GameObject.Find("Fish"));
             ss.AddFish();
-            return;
         }
+    }
+    void isHit(Collision2D collision)
+    {
         if (main.Godmode == true)
             return;
         if (collision.gameObject.name == "Hat")

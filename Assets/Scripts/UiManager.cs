@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
@@ -21,28 +22,38 @@ public class UiManager : MonoBehaviour
 
     }
     
-    public void Cust() { UnityEngine.SceneManagement.SceneManager.LoadScene("Customization"); }
+    public void Cust() {
+        SceneManager.LoadSceneAsync("Customization");
+    }
     public void ChooseLvL()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("level");
+        SceneManager.LoadSceneAsync("level");
+    }
+    public void Restar()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
     public void PlaySand()
 	{
-		UnityEngine.SceneManagement.SceneManager.LoadScene("sandLevel");
-	}
+        SceneManager.LoadSceneAsync("Load");
+        Load.level = "sandLevel";
+    }
     public void PlayIce()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("scene");
+
+        SceneManager.LoadSceneAsync("Load");
+        Load.level = "scene";
     }
 
     public void PlayJun()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("junglescene");
+        SceneManager.LoadSceneAsync("Load");
+        Load.level = "junglescene";
     }
 
     public void Settings()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Settings");
+        SceneManager.LoadSceneAsync("Settings");
     }
 
     public void Exit()
@@ -52,7 +63,11 @@ public class UiManager : MonoBehaviour
 
     public void Back()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("menu");
+        SceneManager.LoadSceneAsync("menu");
+    }
+    public void Loading()
+    {
+        SceneManager.LoadSceneAsync("Load");
     }
 
     public void Pause()
@@ -71,9 +86,24 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public void Review() {
+    public void ReviewIce() {
         //SaveSc();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("scene"); 
+        ADS.ShowReward();
+        SceneManager.LoadSceneAsync("scene"); 
+    }
+
+    public void ReviewDes()
+    {
+        //SaveSc();
+        ADS.ShowReward();
+        SceneManager.LoadSceneAsync("sandLevel");
+    }
+
+    public void ReviewJun()
+    {
+        //SaveSc();
+        ADS.ShowReward();
+        SceneManager.LoadSceneAsync("junglescene");
     }
 
     public void CloseBuy()

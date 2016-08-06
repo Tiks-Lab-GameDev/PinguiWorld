@@ -25,16 +25,16 @@ namespace Scripts
 {
 public static class GPGSIds
 {
-        public const string leaderboard_monthly_ranking = "CgkI5721y58KEAIQCA"; // <GPGSID>
         public const string achievement_professional = "CgkI5721y58KEAIQBg"; // <GPGSID>
-        public const string leaderboard_weekly_ranking = "CgkI5721y58KEAIQCQ"; // <GPGSID>
+        public const string achievement_good_start = "CgkI5721y58KEAIQAQ"; // <GPGSID>
         public const string achievement_well_played = "CgkI5721y58KEAIQBA"; // <GPGSID>
         public const string achievement_stylish = "CgkI5721y58KEAIQAw"; // <GPGSID>
         public const string achievement_amateur = "CgkI5721y58KEAIQBQ"; // <GPGSID>
+        public const string leaderboard_spent_golden_fish = "CgkI5721y58KEAIQCg"; // <GPGSID>
+        public const string leaderboard_earned_golden_fish = "CgkI5721y58KEAIQCQ"; // <GPGSID>
         public const string achievement_here_comes_the_money = "CgkI5721y58KEAIQAg"; // <GPGSID>
-        public const string leaderboard_daily_ranking = "CgkI5721y58KEAIQCg"; // <GPGSID>
         public const string achievement_wowldwidechampion = "CgkI5721y58KEAIQBw"; // <GPGSID>
-        public const string achievement_good_start = "CgkI5721y58KEAIQAQ"; // <GPGSID>
+        public const string leaderboard_best_score = "CgkI5721y58KEAIQCA"; // <GPGSID>
 
 }
 }

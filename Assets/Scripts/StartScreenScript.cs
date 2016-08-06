@@ -6,6 +6,7 @@ public class StartScreenScript : MonoBehaviour
 
     public GameObject dbox, pbox;
     Main main;
+    bool sucssec;
 
     // Use this for initialization
     void Start () {
@@ -14,6 +15,7 @@ public class StartScreenScript : MonoBehaviour
         pbox = GameObject.Find("PauseMenu");
         pbox.SetActive(false);
         dbox.SetActive(false);
+        sucssec = false;
     }
 	
 	// Update is called once per frame
@@ -28,5 +30,7 @@ public class StartScreenScript : MonoBehaviour
     
     void deadGui() {
         dbox.SetActive(true);
+        if (!sucssec) { LeaderBord.OnAddScoreToLeaderBorad(); sucssec = true; }
+
     }
 }

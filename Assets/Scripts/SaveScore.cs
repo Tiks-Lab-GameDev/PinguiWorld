@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 public class SaveScore : MonoBehaviour
 {
 
     string HighScore = "HighScore", Skin = "NumOfSkin", Fish = "Fish", NumHat = "NumOfHat", Glasses = "NumOfGlasses", MaxHp = "MaxHp", Vol = "Volume";
     Main main;
+
     // Use this for initialization
     void Start () {
         main = GameObject.Find("Scripts").GetComponent<Main>();
@@ -66,5 +67,9 @@ public class SaveScore : MonoBehaviour
         main.Score++;
         GameObject.Find("Point_sound").GetComponent<AudioSource>().Play();
         if (main.Score > main.Highscore) main.Highscore = main.Score;
+    }
+    public void Revive()
+    {
+        if (main.IsReview) { }
     }
 }
