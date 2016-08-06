@@ -90,7 +90,7 @@ public class BirdMovement : MonoBehaviour
             return;
         if (collision.gameObject.tag == "Pik" && main.Hp != 0)
         {
-            GameObject.Find("Hit_sounds").GetComponent<AudioSource>().Play();
+            GameObject.Find("Hit_sound").GetComponent<AudioSource>().Play();
             main.Hp -= 1;
             return;
         }

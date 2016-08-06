@@ -12,12 +12,13 @@ public class ADS : MonoBehaviour, IInterstitialAdListener
     // Use this for initialization
 
     void Start () {
+
         if (Banner) ShowBanner();
         if (Reward) ShowReward();
         if (Video && ite == 3) //заменить на dontdestroyonload
         {
             loop(); ShowVideo();
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
         if (Interst) ShowInterstitial();
 
