@@ -18,6 +18,7 @@ public class Settings : MonoBehaviour
     public void VolumeSwitch()
     {
         PlayerPrefs.SetFloat("Volume",GetComponent<Slider>().value);
+        AudioListener.volume = 5;
     }
     void Change() {
         if (GameObject.Find("GodModeToggle").GetComponent<Toggle>().isOn)  PlayerPrefs.SetInt("GodMode", 0);

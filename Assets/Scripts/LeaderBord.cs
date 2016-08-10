@@ -9,31 +9,20 @@ public class LeaderBord : MonoBehaviour
     #region PUBLIC_VAR
     public string leaderboard;
     public static string ld;
-    bool islogin, start;
-    GameObject lb, lg;
+    bool islogin;
     #endregion
   //  #region DEFAULT_UNITY_CALLBACKS
     void Start()
     {
-        ld = leaderboard;
-        lb = GameObject.Find("LeaderBoard");
-        lg = GameObject.Find("LogIn");
-        lb.SetActive(false);
         // recommended for debugging:
         PlayGamesPlatform.DebugLogEnabled = true;
 
         // Activate the Google Play Games platform
         PlayGamesPlatform.Activate();
+
+        LogIn();
     }
 
-    void OnGUI()
-    {
-        if (start) {
-        Debug.Log(islogin);
-            if (islogin) { lb.SetActive(true); lg.SetActive(false); start = false; }
-            else { lg.SetActive(true); start = false; lb.SetActive(false); }
-        }
-    }
    // #endregion
    // #region BUTTON_CALLBACKS
     /// <summary>
@@ -55,7 +44,6 @@ public class LeaderBord : MonoBehaviour
 
             }
             islogin = success;
-            start = true;
         });
         
     }
@@ -64,6 +52,7 @@ public class LeaderBord : MonoBehaviour
     /// </summary>
     public void OnShowLeaderBoard()
     {
+        if (!islogin) { LogIn(); OnShowLeaderBoard(); }
         //        Social.ShowLeaderboardUI (); // Show all leaderboard
         ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(ld); // Show current (Active) leaderboard
     }
