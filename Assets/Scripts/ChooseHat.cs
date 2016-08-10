@@ -6,23 +6,23 @@ using System.IO;
 public class ChooseHat : MonoBehaviour
 {
 
-    public Sprite[] hats;
+    public GameObject[] hats;
     SpriteRenderer sprite;
     Main main;
+    int num;
+    GameObject go,pl;
     // Use this for initialization
     void Start () {
         main = GameObject.Find("Scripts").GetComponent<Main>();
-        sprite = GetComponent<SpriteRenderer>();
+        num = PlayerPrefs.GetInt("NumOfHat");
+        pl = GameObject.Find("PlayerBird");
         DrawHat();
+        go.transform.SetParent(pl.transform);
     }
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
-
     void DrawHat()
     {
-        sprite.sprite = hats[main.Hat];
+        go = GameObject.Find(Instantiate(hats[num], hats[num].transform.position, hats[num].transform.rotation).name);
     }
 }

@@ -5,22 +5,21 @@ using System.IO;
 using System;
 
 public class customization : MonoBehaviour {
-    public Sprite[] hats;
+    public GameObject[] hats;
     public int[] price;
     bool[] isBuy;
     public string[] skins;
     public string[] glasses;
-    SpriteRenderer sprite;
     int size,num;
     Main main;
     SaveScore ss;
+    GameObject go;
 
     // Use this for initialization
     void Start () {
         main = GameObject.Find("Scripts").GetComponent<Main>();
         ss = GameObject.Find("Scripts").GetComponent<SaveScore>();
-        sprite = GetComponent<SpriteRenderer>();
-        sprite.sprite = hats[main.Hat];
+        go = GameObject.Find(Instantiate(hats[main.Hat]).name);
         size = hats.Length;
         isBuy = new bool[size];
         fishUpdate();
@@ -32,7 +31,8 @@ public class customization : MonoBehaviour {
 
     void change()
     {
-        sprite.sprite = hats[num];
+        if(go != null) Destroy(go);
+        go = GameObject.Find(Instantiate(hats[num]).name);
         main.Hat = num;
         fishUpdate();
     }
