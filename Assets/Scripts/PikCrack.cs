@@ -14,7 +14,8 @@ public class PikCrack : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D coll) {
+    void OnTriggerEnter2D(Collider2D coll) {
+        Debug.Log("Enter"); 
 		if (coll.gameObject.tag == "Player") {
 			posx = GetComponent<Transform>().position.x;
 			posy = GetComponent<Transform>().position.y;

@@ -81,6 +81,7 @@ public class BirdMovement : MonoBehaviour
             Destroy(GameObject.Find("Fish"));
             ss.AddFish();
         }
+        if(collider.gameObject.tag == "Pik") isHit(collider);
     }
     void isHit(Collision2D collision)
     {
@@ -89,6 +90,22 @@ public class BirdMovement : MonoBehaviour
         if (collision.gameObject.name == "Hat")
             return;
         if (collision.gameObject.tag == "Pik" && main.Hp != 0)
+        {
+            GameObject.Find("Hit_sound").GetComponent<AudioSource>().Play();
+            main.Hp -= 1;
+            return;
+        }
+        animator.SetTrigger("Death");
+        GameObject.Find("Die_sound").GetComponent<AudioSource>().Play();
+        main.Dead = true;
+        ss.Save();
+    }
+    void isHit(Collider2D collider) {
+        if (main.Godmode == true)
+            return;
+        if (collider.gameObject.name == "Hat")
+            return;
+        if (collider.gameObject.tag == "Pik" && main.Hp != 0)
         {
             GameObject.Find("Hit_sound").GetComponent<AudioSource>().Play();
             main.Hp -= 1;
