@@ -19,7 +19,7 @@ public class customization : MonoBehaviour {
     void Start () {
         main = GameObject.Find("Scripts").GetComponent<Main>();
         ss = GameObject.Find("Scripts").GetComponent<SaveScore>();
-        go = GameObject.Find(Instantiate(hats[main.Hat]).name);
+        go = GameObject.Find(Instantiate(hats[0]).name);
         size = hats.Length;
         isBuy = new bool[size];
         fishUpdate();
@@ -72,6 +72,6 @@ public class customization : MonoBehaviour {
 
     void fishUpdate()
     {
-        GameObject.Find("Price").GetComponent<Text>().text = "Fish: " + main.Gf + "\nPrice: " + price[main.Hat];
+        GameObject.Find("Price").GetComponent<Text>().text = "Fish: " + main.Gf + "\nPrice: " + price[main.Hat] + "\nHp: "+ main.Hat;
     }
 }
